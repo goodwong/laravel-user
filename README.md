@@ -1,4 +1,4 @@
-# Goodwong\LaravelUser
+# Laravel 5 User
 
 将用户独立出一个模块，以提高代码可复用性。
 
@@ -131,7 +131,11 @@ class RouteServiceProvider extends ServiceProvider
 
     - `UserLogouted`
 
-2. 支持非cookie的登录方案（用于app、微信小程序）
+2. 注册用户
+
+3. 管理用户
+
+4. 支持非cookie的登录方案（用于app、微信小程序）
 
 
 
