@@ -42,6 +42,11 @@
 2. 通过`Goodwong\LaravelUser\Handlers\CreateUserHandler`创建用户
     ```php
     $createUserHandler = app('Goodwong\LaravelUser\Handlers\CreateUserHandler');
+    $attributes = [
+        'name' => 'User Name',
+        'email' => 'email', // unique, 可以使用任意字符串，只要保证唯一
+        'password' => 'xxxx' // raw password, optional
+    ];
     $user = $createUserHandler->create($attributes);
     ```
 
@@ -49,7 +54,7 @@
     ```php
     $loginHandler = app('Goodwong\LaravelUser\Handlers\LoginHandler');
     $loginHandler->login($user);
-    $success = $loginHandler->attempt($credentials);
+    ~~$success = $loginHandler->attempt($credentials);~~ // 暂未实现
     ```
     > ** 注意：** 不要使用`Auth::login($user);`，这样得不到事件通知
 
