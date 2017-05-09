@@ -1,7 +1,7 @@
 {
     "name": "goodwong/laravel-user",
     "description": "将用户独立出一个模块，以提高代码可复用性",
-    "type": "utils",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
