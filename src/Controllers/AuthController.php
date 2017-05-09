@@ -3,6 +3,7 @@
 namespace Goodwong\LaravelUser\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController
 {
