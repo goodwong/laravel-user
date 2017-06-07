@@ -17,7 +17,7 @@ class AuthController
     {
         $user = $request->user();
         // 开发环境下可以模拟登录
-        if (!$user && config('app.debug')) {
+        if (!$user && config('app.debug') && $request->has('fake')) {
             $user = \Goodwong\LaravelUser\Entities\User::firstOrCreate(
                 ['id' => 1],
                 ['name' => 'william', 'email' => 'w.illi.am@qq.com', 'password' => sha1(uniqid())]
