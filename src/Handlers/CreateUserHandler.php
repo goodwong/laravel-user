@@ -3,19 +3,18 @@
 namespace Goodwong\LaravelUser\Handlers;
 
 use Goodwong\LaravelUser\Events\UserCreated;
-use Goodwong\LaravelUser\Repositories\UserRepository;
+use Goodwong\LaravelUser\Entities\User;
 
 class CreateUserHandler
 {
     /**
      * construct
      * 
-     * @param  UserRepository  $userRepository
      * @return void
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct()
     {
-        $this->userRepository = $userRepository;
+        //
     }
 
     /**
@@ -26,7 +25,7 @@ class CreateUserHandler
      */
     public function create($attributes)
     {
-        $user = $this->userRepository->create($attributes);
+        $user = User::create($attributes);
 
         event(new UserCreated($user));
 
