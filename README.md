@@ -32,12 +32,13 @@
 
 ## 使用
 
-1. 通过`Goodwong\LaravelUser\Repositories\UserRepository`查询
+1. 查询用户
     ```php
-    $userRepository = app('Goodwong\LaravelUser\Repositories\UserRepository');
-    $user = $userRepository->find($user_id);
+    // User 继承自Eloquent
+    $user = Goodwong\LaravelUser\Entities\User::find($user_id);
+    $users = Goodwong\LaravelUser\Entities\User::get();
     ```
-    > ** 注意：** 不要使用repository创建用户
+    > ** 注意：** 不要使用Eloquent方式创建用户
 
 2. 通过`Goodwong\LaravelUser\Handlers\CreateUserHandler`创建用户
     ```php

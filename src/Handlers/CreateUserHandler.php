@@ -25,6 +25,9 @@ class CreateUserHandler
      */
     public function create($attributes)
     {
+        if (!isset($attributes['password'])) {
+            $attributes['password'] = bcrypt(uniqid());
+        }
         $user = User::create($attributes);
 
         event(new UserCreated($user));
