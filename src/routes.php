@@ -9,5 +9,5 @@ Route::group([
     // Route::post('users/me/session', 'AuthController@login');
     Route::delete('users/me/session', 'AuthController@logout');
 
-    // Route::resource('users', 'UserController');
+    Route::resource('users', 'UserController');
 });
