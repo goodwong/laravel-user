@@ -6,7 +6,7 @@ use Goodwong\LaravelUser\Events\UserAuthorized;
 use Goodwong\LaravelUser\Entities\User;
 use Illuminate\Support\Facades\Auth;
 
-class LoginHandler
+class AuthHandler
 {
     /**
      * login
@@ -18,5 +18,15 @@ class LoginHandler
     {
         Auth::login($user);
         event(new UserAuthorized($user));
+    }
+
+    /**
+     * logout
+     * 
+     * @return void
+     */
+    public function logout()
+    {
+        Auth::logout();
     }
 }

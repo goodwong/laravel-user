@@ -40,22 +40,22 @@
     ```
     > ** 注意：** 不要使用Eloquent方式创建用户
 
-2. 通过`Goodwong\LaravelUser\Handlers\CreateUserHandler`创建用户
+2. 通过`Goodwong\LaravelUser\Handlers\UserHandler`创建用户
     ```php
-    $createUserHandler = app('Goodwong\LaravelUser\Handlers\CreateUserHandler');
+    $userHandler = app('Goodwong\LaravelUser\Handlers\UserHandler');
     $attributes = [
         'name' => 'User Name',
         'email' => 'email', // unique, 可以使用任意字符串，只要保证唯一
         'password' => 'xxxx' // raw password, optional
     ];
-    $user = $createUserHandler->create($attributes);
+    $user = $userHandler->create($attributes);
     ```
 
-3. 通过`Goodwong\LaravelUser\Handlers\LoginHandler`登录用户
+3. 通过`Goodwong\LaravelUser\Handlers\AuthHandler`登录用户
     ```php
-    $loginHandler = app('Goodwong\LaravelUser\Handlers\LoginHandler');
-    $loginHandler->login($user);
-    ~~$success = $loginHandler->attempt($credentials);~~ // 暂未实现
+    $authHandler = app('Goodwong\LaravelUser\Handlers\AuthHandler');
+    $authHandler->login($user);
+    ~~$success = $authHandler->attempt($credentials);~~ // 暂未实现
     ```
     > ** 注意：** 不要使用`Auth::login($user);`，这样得不到事件通知
 

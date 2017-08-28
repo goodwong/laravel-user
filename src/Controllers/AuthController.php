@@ -22,7 +22,7 @@ class AuthController
                 ['id' => 1],
                 ['name' => 'william', 'email' => 'w.illi.am@qq.com', 'password' => sha1(uniqid())]
             );
-            app('Goodwong\LaravelUser\Handlers\LoginHandler')->login($user);
+            app('Goodwong\LaravelUser\Handlers\AuthHandler')->login($user);
         }
         return response()->json($user);
     }

@@ -5,7 +5,7 @@ namespace Goodwong\LaravelUser\Handlers;
 use Goodwong\LaravelUser\Events\UserCreated;
 use Goodwong\LaravelUser\Entities\User;
 
-class CreateUserHandler
+class UserHandler
 {
     /**
      * construct
