@@ -16,17 +16,19 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+        $per_page = $request->input('per_page');
+
         $query = User::getModel();
         // order by
         $query = $query->orderBy('id', 'desc');
         // get all users
         if (!$request->has('in')) {
-            return $query->paginate();
+            return $query->paginate($per_page);
         }
         // where
         $ids = explode(',', $request->input('in'));
         $query = $query->whereIn('id', $ids);
-        return $query->paginate();
+        return $query->paginate($per_page);
     }
 
     /**

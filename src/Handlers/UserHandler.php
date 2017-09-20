@@ -28,6 +28,9 @@ class UserHandler
         if (!isset($attributes['password'])) {
             $attributes['password'] = bcrypt(uniqid());
         }
+        if (!data_get($attributes, 'name')) {
+            $attributes['name'] = '';
+        }
         $user = User::create($attributes);
 
         event(new UserCreated($user));
