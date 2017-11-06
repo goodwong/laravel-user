@@ -17,9 +17,10 @@ class AuthController
     {
         $user = $request->user();
         // 开发环境下可以模拟登录
-        if (!$user && config('app.debug') && $request->has('fake')) {
+        $fake = $request->input('fake');
+        if (!$user && config('app.debug') && $fake) {
             $user = \Goodwong\LaravelUser\Entities\User::firstOrCreate(
-                ['id' => 1],
+                ['id' => $fake],
                 ['name' => 'william', 'email' => 'w.illi.am@qq.com', 'password' => sha1(uniqid())]
             );
             app('Goodwong\LaravelUser\Handlers\AuthHandler')->login($user);
