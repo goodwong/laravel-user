@@ -7,14 +7,34 @@ use Illuminate\Support\Facades\Route;
 class Router
 {
     /**
-     * routes
+     * auth routes
      * 
      * @return void
      */
-    public static function route()
+    public static function auth()
     {
-        require __DIR__.'/routes.php';
-        //Route::namespace('\\Goodwong\\LaravelUser\\Controllers')
-        //->group(__DIR__.'/routes.php');
+        Route::group([
+            'namespace' => 'Goodwong\LaravelUser\Controllers',
+        ], function () {
+            Route::get('users/me', 'AuthController@show');
+            // Route::post('users/me', 'AuthController@register');
+            // Route::put('users/me', 'AuthController@update');
+            // Route::post('users/me/session', 'AuthController@login');
+            Route::delete('users/me/session', 'AuthController@logout');
+        });
+    }
+
+    /**
+     * resource routes
+     * 
+     * @return void
+     */
+    public static function resource()
+    {
+        Route::group([
+            'namespace' => 'Goodwong\LaravelUser\Controllers',
+        ], function () {
+            Route::resource('users', 'UserController');
+        });
     }
 }
