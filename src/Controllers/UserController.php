@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $per_page = $request->input('per_page');
+        $per_page = $request->input('per_page', 15);
 
         $query = User::getModel();
         // order by
