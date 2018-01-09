@@ -25,7 +25,7 @@ class AuthController
             );
             app('Goodwong\LaravelUser\Handlers\AuthHandler')->login($user);
         }
-        return response()->json($user);
+        return $user;
     }
 
     /**
