@@ -1,6 +1,6 @@
 <?php
 
-namespace Goodwong\LaravelUser\Entities;
+namespace Goodwong\User\Entities;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

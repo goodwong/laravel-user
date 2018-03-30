@@ -1,6 +1,6 @@
 <?php
 
-namespace Goodwong\LaravelUser;
+namespace Goodwong\User;
 
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +14,7 @@ class Router
     public static function auth()
     {
         Route::group([
-            'namespace' => 'Goodwong\LaravelUser\Controllers',
+            'namespace' => 'Goodwong\User\Controllers',
         ], function () {
             Route::get('users/me', 'AuthController@show');
             // Route::post('users/me', 'AuthController@register');
@@ -32,7 +32,7 @@ class Router
     public static function resource()
     {
         Route::group([
-            'namespace' => 'Goodwong\LaravelUser\Controllers',
+            'namespace' => 'Goodwong\User\Controllers',
         ], function () {
             Route::resource('users', 'UserController');
         });

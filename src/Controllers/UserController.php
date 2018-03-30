@@ -1,8 +1,8 @@
 <?php
 
-namespace Goodwong\LaravelUser\Controllers;
+namespace Goodwong\User\Controllers;
 
-use Goodwong\LaravelUser\Entities\User;
+use Goodwong\User\Entities\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -55,7 +55,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \Goodwong\LaravelUser\Entities\User  $user
+     * @param  \Goodwong\User\Entities\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -66,7 +66,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Goodwong\LaravelUser\Entities\User  $user
+     * @param  \Goodwong\User\Entities\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -78,7 +78,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Goodwong\LaravelUser\Entities\User  $user
+     * @param  \Goodwong\User\Entities\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -89,7 +89,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Goodwong\LaravelUser\Entities\User  $user
+     * @param  \Goodwong\User\Entities\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

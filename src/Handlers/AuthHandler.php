@@ -1,9 +1,9 @@
 <?php
 
-namespace Goodwong\LaravelUser\Handlers;
+namespace Goodwong\User\Handlers;
 
-use Goodwong\LaravelUser\Events\UserAuthorized;
-use Goodwong\LaravelUser\Entities\User;
+use Goodwong\User\Events\UserAuthorized;
+use Goodwong\User\Entities\User;
 use Illuminate\Support\Facades\Auth;
 
 class AuthHandler

@@ -18,7 +18,7 @@
     App\User::class,
     
     // 修改为
-    Goodwong\LaravelUser\Entities\User::class,
+    Goodwong\User\Entities\User::class,
     ```
 
 3. 同样修改config/services.php：
@@ -26,7 +26,7 @@
     App\User::class,
     
     // 修改为
-    Goodwong\LaravelUser\Entities\User::class,
+    Goodwong\User\Entities\User::class,
     ```
 
 
@@ -35,14 +35,14 @@
 1. 查询用户
     ```php
     // User 继承自Eloquent
-    $user = Goodwong\LaravelUser\Entities\User::find($user_id);
-    $users = Goodwong\LaravelUser\Entities\User::get();
+    $user = Goodwong\User\Entities\User::find($user_id);
+    $users = Goodwong\User\Entities\User::get();
     ```
     > ** 注意：** 不要使用Eloquent方式创建用户
 
-2. 通过`Goodwong\LaravelUser\Handlers\UserHandler`创建用户
+2. 通过`Goodwong\User\Handlers\UserHandler`创建用户
     ```php
-    $userHandler = app('Goodwong\LaravelUser\Handlers\UserHandler');
+    $userHandler = app('Goodwong\User\Handlers\UserHandler');
     $attributes = [
         'name' => 'User Name',
         'email' => 'email', // unique, 可以使用任意字符串，只要保证唯一
@@ -51,9 +51,9 @@
     $user = $userHandler->create($attributes);
     ```
 
-3. 通过`Goodwong\LaravelUser\Handlers\AuthHandler`登录用户
+3. 通过`Goodwong\User\Handlers\AuthHandler`登录用户
     ```php
-    $authHandler = app('Goodwong\LaravelUser\Handlers\AuthHandler');
+    $authHandler = app('Goodwong\User\Handlers\AuthHandler');
     $authHandler->login($user);
     ~~$success = $authHandler->attempt($credentials);~~ // 暂未实现
     ```
@@ -113,13 +113,13 @@ class RouteServiceProvider extends ServiceProvider
 
 1. 修改 routes/web.php，增加：
     ```php
-    \Goodwong\LaravelUser\Router::route();
+    \Goodwong\User\Router::route();
     ```
     
     当然你也可以嵌套`prefix`、`middleware`
     ```php
     Route::group(['prefix' => '/auth'], function () {
-        \Goodwong\LaravelUser\Router::route();
+        \Goodwong\User\Router::route();
     });
     ```
     
@@ -127,7 +127,7 @@ class RouteServiceProvider extends ServiceProvider
     ```php
     // 这样是错误的
     Route::group(['namespace' => 'App\\Http\\Controllers'], function () {
-        \Goodwong\LaravelUser\Router::route();
+        \Goodwong\User\Router::route();
     });
     ```
     

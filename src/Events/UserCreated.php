@@ -1,8 +1,8 @@
 <?php
 
-namespace Goodwong\LaravelUser\Events;
+namespace Goodwong\User\Events;
 
-use Goodwong\LaravelUser\Entities\User;
+use Goodwong\User\Entities\User;
 use Illuminate\Queue\SerializesModels;
 
 class UserCreated

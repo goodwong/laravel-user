@@ -1,6 +1,6 @@
 <?php
 
-namespace Goodwong\LaravelUser\Controllers;
+namespace Goodwong\User\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,11 +19,11 @@ class AuthController
         // 开发环境下可以模拟登录
         $fake = $request->input('fake');
         if (!$user && config('app.debug') && $fake) {
-            $user = \Goodwong\LaravelUser\Entities\User::firstOrCreate(
+            $user = \Goodwong\User\Entities\User::firstOrCreate(
                 ['id' => $fake],
                 ['name' => 'william', 'email' => 'w.illi.am@qq.com', 'password' => sha1(uniqid())]
             );
-            app('Goodwong\LaravelUser\Handlers\AuthHandler')->login($user);
+            app('Goodwong\User\Handlers\AuthHandler')->login($user);
         }
         return $user;
     }

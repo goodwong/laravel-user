@@ -1,9 +1,9 @@
 <?php
 
-namespace Goodwong\LaravelUser\Handlers;
+namespace Goodwong\User\Handlers;
 
-use Goodwong\LaravelUser\Events\UserCreated;
-use Goodwong\LaravelUser\Entities\User;
+use Goodwong\User\Events\UserCreated;
+use Goodwong\User\Entities\User;
 
 class UserHandler
 {
