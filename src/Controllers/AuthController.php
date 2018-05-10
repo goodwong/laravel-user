@@ -23,7 +23,7 @@ class AuthController
                 ['id' => $fake],
                 ['name' => 'william', 'email' => 'w.illi.am@qq.com', 'password' => sha1(uniqid())]
             );
-            app('Goodwong\User\Handlers\AuthHandler')->login($user);
+            app('Goodwong\User\Handlers\AuthHandler')->login($user, true);
         }
         return $user;
     }
