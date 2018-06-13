@@ -19,9 +19,10 @@ class AuthController
         // 开发环境下可以模拟登录
         $fake = $request->input('fake');
         if (!$user && config('app.debug') && $fake) {
+            $rand = uniqid();
             $user = \Goodwong\User\Entities\User::firstOrCreate(
                 ['id' => $fake],
-                ['name' => 'william', 'email' => 'w.illi.am@qq.com', 'password' => sha1(uniqid())]
+                ['name' => 'william', 'email' => "w.illi.am-{$rand}@qq.com", 'password' => sha1(uniqid())]
             );
             app('Goodwong\User\Handlers\AuthHandler')->login($user, true);
         }
